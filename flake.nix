@@ -49,12 +49,14 @@
 
             nativeBuildInputs = with pkgs; [
               pkg-config
+              clang
               cmake
             ];
             buildInputs =
               with pkgs;
               [
                 openssl
+                llvmPackages.libclang.lib
               ]
               ++ lib.optionals pkgs.stdenv.isDarwin [
                 pkgs.libiconv
